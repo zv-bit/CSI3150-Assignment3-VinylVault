@@ -18,6 +18,20 @@ function CatalogPage({ products, onAddToCart}){
                     Shop from our wide and fine selection of Albums
                 </p>
             </header>
+            <div className="filter-bar">
+                {genres.map((cat) => {
+                    <button key={cat} className={'filter-pill $selectedGenre === cat ? "active" : ""}'} onClick={() => setSelectedGenre(cat)}>
+                        {cat}
+                    </button>;
+                })}
+            </div>
+
+            <div className="product-grid">
+                {filteredProducts.map((product) =>( <ProductCard key={product.id} product={product} onAddToCart={onAddToCart}/>
+            ))}
+            </div>
         </div>
-    )
+    );
 }
+
+export default CatalogPage;
