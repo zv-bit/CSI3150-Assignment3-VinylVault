@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import AlbumArt from "../assets/albums";
+import AlbumArt from "../components/AlbumCards";
 
-function CatalogPage({ products, onAddToCart}){
+function CatalogPage({ albums, onAddToCart}){
     const genres =["All","Jazz","Electronic","Rock","Classical"];
     const [selectedGenre, setSelectedGenre] = useState("All");
 
@@ -26,8 +26,8 @@ function CatalogPage({ products, onAddToCart}){
                 })}
             </div>
 
-            <div className="product-grid">
-                {filteredProducts.map((product) =>( <ProductCard key={product.id} product={product} onAddToCart={onAddToCart}/>
+            <div className="album-grid">
+                {filteredAlbums.map((album) =>( <AlbumCards key={album.id} product={album} onAddToCart={onAddToCart}/>
             ))}
             </div>
         </div>
