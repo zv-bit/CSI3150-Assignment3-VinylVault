@@ -9,8 +9,52 @@ const CartDrawer = ({isOpen,cart,onClose,onUpdateQuantity,onRemove}) => {
 
     const handleProceedToCheckout = () => {
         onClose();
-        navigate("/checkouot");
+        navigate("/checkout");
     };
 
-    
-}
+    return (
+        <div className="drawer-overlay" onClick={onClose}>
+            <aside className="drawer-panel" onClick={(e) => e.stopPropagation()}>
+                <div className="drawer-header">
+                    <h2>Your Cart ({cart.length})</h2>
+                    <button type="button" className="btn-close" onClick={onClose}>&times;</button>
+                </div>
+
+                <div className="drawer-body">
+                    {cart.length === 0 ? (
+                        <div className="empty-cart">Your cart is curretnly empty</div>) : (
+                        <ul className="cart-list">
+                            {cart.map((item) => (
+                                <li className="cart-item" key={item.id}>
+                                    <img src={item.image} alt={item.name} className="cart-item-img"/>
+
+                                    <div className="cart-item-info">
+                                        <h4>{item.name}</h4>
+                                        <p className="cart-item-price">${(item.price*item.quantity).toFixed(2)}</p>
+                                        <div className="qty-controls">
+                                            <button onClick={() => onUpdateQuantity(item.id,-1)}>-</button>
+                                            <span>{item.quantity}</span>
+                                            <button onClick={() => onUpdateQuantity(item.id,1)}>+</button>
+                                            <button className="btn-remove" onClick={() => onRemove(item.id)}>Trash Emoji</button>
+                                        </div>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                        )}
+                </div>
+                {cart.length > 0 && (
+                    <div className="drawer-footer">
+                        <div className="subtotal-row">
+                            <span>Subtotal:</span>
+                            <strong>${subtotal.toFixed(2)}</strong>
+                        </div>
+                        <button type="button" className="btn btn-primary btn-block" onClick={handleProceedToCheckout}>Proceed to Checkout</button>
+                    </div>
+                )}
+            </aside>
+        </div>
+    );
+};
+
+export default CartDrawer;
