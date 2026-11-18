@@ -17,7 +17,7 @@ const CheckoutPage = ({cart,onClearCart}) => {
     const total = subtotal + taxes;
 
     const handleChange = (e) => {
-        setFormData({...formData, [e.target.name]: e.target.value});
+        setFormData({...formData, [e.target.title]: e.target.value});
     };
 
     const handleSubmit = (e) => {
@@ -58,7 +58,7 @@ return (
             <label htmlFor="fullName"> Full Name *</label>
             <input
               type="text"
-              name="fullName"
+              title="fullName"
               id="fullName"
               required
               value={formData.fullName}
@@ -69,7 +69,7 @@ return (
             <label htmlFor="email"> Email *</label>
             <input
               type="text"
-              name="email"
+              title="email"
               id="email"
               required
               value={formData.email}
@@ -80,7 +80,7 @@ return (
             <label htmlFor="shippingAddress"> Shipping Address *</label>
             <input
               type="text"
-              name="shippingAddress"
+              title="shippingAddress"
               id="shippingAddress"
               required
               value={formData.shippingAddress}
@@ -91,7 +91,7 @@ return (
             <label htmlFor="zipCode"> Zip Code*</label>
             <input
               type="text"
-              name="zipCode"
+              title="zipCode"
               id="zipCode"
               required
               pattern="[0-9]{5}"
@@ -111,7 +111,7 @@ return (
             {cart.map((item) => (
               <li key={item.id} className="summary-row">
                 <span>
-                  {item.name} &times; {item.quantity}
+                  {item.title} &times; {item.quantity}
                 </span>
                 <span>${(item.price * item.quantity).toFixed(2)}</span>
               </li>

@@ -6,6 +6,7 @@ const AlbumDetailPage = ({ albums, onAddToCart }) => {
   const [qty, setQty] = useState(1);
 
   const album = albums.find((p) => p.id === albumId);
+
   if (!album) {
     return (
       <div className="detail-error">
@@ -20,20 +21,20 @@ const AlbumDetailPage = ({ albums, onAddToCart }) => {
   return (
     <div className="detail-container">
       <nav className="breadcrumb">
-        <Link to="/">Catalog</Link> &gt; <span>{album.name}</span>
+        <Link to="/">Catalog</Link> &gt; <span>{album.title}</span>
       </nav>
 
       <div className="detail-grid">
-        <img src={album.image} alt={album.name} className="detail-img" />
+        <img src={album.image} alt={album.title} className="detail-img" />
 
         <div className="detail-info">
           <span className="album-category">{album.category}</span>
-          <h1 className="detail-title">{album.name}</h1>
+          <h1 className="detail-title">{album.title}</h1>
           <p className="detail-price">{album.price.toFixed(2)}</p>
           <p className="detail-desc">{album.description}</p>
           <div className="stock-tag">
             {album.stock > 0
-              ? "✓ In Stock ({album.stock} units available)"
+              ? `✓ In Stock (${album.stock} units available)`
               : "Out of Stock"}
           </div>
 

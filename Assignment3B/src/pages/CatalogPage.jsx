@@ -19,11 +19,13 @@ function CatalogPage({ albums, onAddToCart}){
                 </p>
             </header>
             <div className="filter-bar">
-                {genres.map((cat) => {
-                    <button key={cat} className={'filter-pill $selectedGenre === cat ? "active" : ""}'} onClick={() => setSelectedGenre(cat)}>
+                {genres.map((cat) => (
+                    <button key={cat} className={`filter-pill ${selectedGenre === cat ? "active" : ""}`} onClick={() => setSelectedGenre(cat)}>
                         {cat}
-                    </button>;
-                })}
+                    </button>
+                        )
+                    )
+                }
             </div>
 
             <div className="album-grid">
