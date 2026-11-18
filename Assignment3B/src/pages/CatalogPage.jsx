@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AlbumArt from "../components/AlbumCards";
+import AlbumCards from "../components/AlbumCards";
 
 function CatalogPage({ albums, onAddToCart}){
     const genres =["All","Jazz","Electronic","Rock","Classical"];
@@ -7,7 +7,7 @@ function CatalogPage({ albums, onAddToCart}){
 
     const validAlbums = albums || [];
 
-    const filteredAlbums = selectedAlbum === "All" ? validAlbums : validAlbums.filter((p) => p.genre === selectedGenre);
+    const filteredAlbums = selectedGenre === "All" ? validAlbums : validAlbums.filter((p) => p.genre === selectedGenre);
 
 
     return(
@@ -27,7 +27,7 @@ function CatalogPage({ albums, onAddToCart}){
             </div>
 
             <div className="album-grid">
-                {filteredAlbums.map((album) =>( <AlbumCards key={album.id} product={album} onAddToCart={onAddToCart}/>
+                {filteredAlbums.map((album) =>( <AlbumCards key={album.id} album={album} onAddToCart={onAddToCart}/>
             ))}
             </div>
         </div>

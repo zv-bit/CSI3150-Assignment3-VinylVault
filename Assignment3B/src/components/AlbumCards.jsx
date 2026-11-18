@@ -20,4 +20,4 @@ const AlbumCards = ({album,onAddToCart}) => {
     );
 };
 
-export default albumCart;
+export default AlbumCards;
