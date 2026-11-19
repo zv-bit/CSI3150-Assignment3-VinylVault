@@ -24,8 +24,10 @@ react-router-dom: 7.18.5
 4) copy & paste or type `npm run dev` in the terminal
 5) press enter
 
-# Project overview
-tbd
+# Brief overview of the project directory structure
+The program runs from index.html, which takes info from main.jsx which organizes information driven by App.jsx. App.jsx is a file that takes and translates information from files in the the pages and components folders. Catalog page would likely be the highest ranking file between pages and components, as it takes information from the AlbumCards.jsx which takes info ffrom albums.js.
+
 
 # React Component Hierarchy & flow architecture
-tbd
+Made it in google docs, didn't have time to reformat it here since I had to do most of this in a public library after my car broke down
+https://docs.google.com/document/d/1WP-YEhIg8y0e9KntYjZVEuqoqMCS3tEArgNlDllgtm4/edit?usp=sharing
